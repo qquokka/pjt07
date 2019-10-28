@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>username</th>
+            <th>email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.pk }}</td>
+                <td><a href="{% url 'accounts:detail' user.pk %}">{{ user.username }}</a></td>
+                <td>{{ user.email }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td>아무도 없어요ㅠ</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
