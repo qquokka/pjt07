@@ -10,5 +10,5 @@
 
 1. 처음 http://127.0.0.1:8000/로 들어갈 때 http://127.0.0.1:8000/movies/로 들어갈 수 있도록 easy_mean/urls.py 안에 함수 go_homepage를 만들었습니다.
 
-![홈페이지](C:\Users\student\Desktop\HyejinYang\Project\project07\images\홈페이지.PNG)
+   ![홈페이지](images/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.PNG)
 
