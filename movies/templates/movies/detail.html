@@ -13,6 +13,7 @@
         <button type="submit">좋아요{% if movie in user.like_movies.all %}취소{% endif %}({{ movie.like_users.count }})</button>
     </form>
 {% endif %}
+<a href="{% url 'movies:index' %}"><button>돌아가기</button></a>
 {% for review in movie.review_set.all %}
     <p><a href="{% url 'accounts:detail' review.user.pk %}">{{ review.user.username }}</a>: {{ review.content }} ({{ review.score }}점)</p>
     <form action="{% url 'movies:review_delete' movie.pk review.pk %}" method="POST" onclick="return confirm('삭제하시겠습니까?')">
