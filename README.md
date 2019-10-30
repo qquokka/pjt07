@@ -1,7 +1,3 @@
----
-typora-root-url: ./
----
-
 # Project 07: Easy Mean
 
 ##	Pair Programming을 통해 느낀점
