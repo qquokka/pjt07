@@ -415,7 +415,7 @@ def detail(request, user_pk):
 
 유저 상세보기 페이지의 수정하기 버튼을 누르면 다음과 같이 평점을 수정할 수 있는 페이지로 이동합니다. 작성자 본인이 아닐 땐 권한이 없다는 메세지를 띄워주면서 유저 상세보기 페이지로 돌아가게 하고, 평점을 성공적으로 수정했을 땐 그냥 다시 유저 상세보기 페이지로 돌아가게 합니다.
 
-![image-20191030225528281](/images/error_message.png)
+![error_message](/images/error_message.PNG)
 
 ```python
 # movies/forms.py
