@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
-from .forms import CustomUserChangeForm, CustomUserCreationForm
+from .forms import CustomUserCreationForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm
 
-# Create your views here.
 def index(request):
     context = {
         'users': get_user_model().objects.all()
@@ -33,7 +32,7 @@ def login(request):
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            return redirect('accounts:index')
+            return redirect(request.GET.get('next') or 'movies:index')
     else:
         form = AuthenticationForm()
     context = {
@@ -43,7 +42,7 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
-    return redirect('accounts:index')
+    return redirect('movies:index')
 
 def detail(request, user_pk):
     context = {

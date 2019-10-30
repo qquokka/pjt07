@@ -5,7 +5,6 @@ from django.views.decorators.http import require_POST
 from .forms import ReviewForm
 from django.contrib import messages
 
-# Create your views here.
 def index(request):
     context = {
         'movies': Movie.objects.all()
@@ -21,12 +20,13 @@ def detail(request, movie_pk):
     
 @require_POST
 def review_create(request, movie_pk):
+    movie = get_object_or_404(Movie, pk=movie_pk)
     if request.user.is_authenticated:
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
             review.user = request.user
-            review.movie_id = movie_pk
+            review.movie = movie
             review.save()
     else:
         messages.warning(request, '로그인이 필요합니다.')
